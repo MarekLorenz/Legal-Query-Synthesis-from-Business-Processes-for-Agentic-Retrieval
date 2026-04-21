@@ -1,0 +1,1 @@
+# Legal-Query-Synthesis-from-Business-Processes-for-Agentic-Retrieval
