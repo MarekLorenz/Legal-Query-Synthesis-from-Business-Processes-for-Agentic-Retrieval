@@ -1,2 +1,9 @@
 google-genai
 python-dotenv
+pandas
+openpyxl
+rank_bm25
+requests
+sentence-transformers
+scikit-learn
+numpy
