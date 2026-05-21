@@ -32,7 +32,7 @@ def find_project_root(start: Path | None = None) -> Path:
 def diversification_dir(project_root: Path) -> Path:
     path = (
         project_root
-        / "regulatory_relevance4process-D73C/SOTA_NLP_LIR/query_diversification_results"
+        / "regulatory_relevance4process/SOTA_NLP_LIR/query_diversification_results"
         / DIVERSIFICATION_SUBDIR
     )
     path.mkdir(parents=True, exist_ok=True)
