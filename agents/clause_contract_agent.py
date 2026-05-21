@@ -3,23 +3,18 @@ Clause / Contract Perspective Agent
 Rewrites the process as if searching for contract clauses
 """
 
+from llm_provider import get_llm_provider
+
 
 def build_prompt(process_text: str) -> str:
     return f"""
-You are a contracts and legal document expert.
+You are a legal query rewrite agent.
 
-Your task is to rewrite the given business process as a contract clause search query.
+Your task is to rephrase the given query from a business process into a different but related query used for BM25 retrieval.
 
-Requirements:
-- Convert steps into: obligations, rights, liabilities
-- Add clause-like phrasing (e.g., "clause", "provision", "terms")
-- Frame in terms of contractual relationships and responsibilities
-- Think about what clauses would govern this behavior in agreements
-- Return ONLY the rewritten query, nothing else
+Frame the query as a relevant legal question that is optimized for retrieval from a regulatory corpus.
 
-Example transformation:
-"refund customer" →
-"refund obligations and liability clauses in service agreements"
+Make sure to stick closely to the intention of the business process description.
 
 Process/Query to frame as contract clauses:
 \"\"\"{process_text}\"\"\"
@@ -28,16 +23,8 @@ Provide the contract clause perspective:
 """
 
 
-def clause_contract_agent(client, text: str) -> str:
+def clause_contract_agent(text: str, provider: str = "ollama") -> str:
     """Rewrites query as contract clause search"""
     prompt = build_prompt(text)
-    
-    try:
-        response = client.models.generate_content(
-            model="gemini-3-flash-preview",
-            contents=prompt
-        )
-        return response.text.strip()
-    except Exception as e:
-        print(f"[ERROR] Clause/Contract Agent failed: {e}")
-        return ""
+    llm = get_llm_provider(provider)
+    return llm.generate(prompt)

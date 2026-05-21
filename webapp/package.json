@@ -1,0 +1,19 @@
+{
+  "name": "regulatory-process-annotator",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "vite build",
+    "backend": "../.venv/bin/uvicorn backend:app --host 127.0.0.1 --port 8000 --reload",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "bpmn-js": "^13.2.2",
+    "vite": "^4.5.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {}
+}

@@ -6,4 +6,10 @@ rank_bm25
 requests
 sentence-transformers
 scikit-learn
-numpy
+transformers<5
+numpy<2
+ipywidgets
+fastapi
+uvicorn
+pytest
+httpx

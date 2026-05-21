@@ -3,12 +3,14 @@ Regulatory/Compliance Agent
 Rewrites the query as a compliance requirement search
 """
 
+from llm_provider import get_llm_provider
+
 
 def build_prompt(process_text: str) -> str:
     return f"""
 You are a regulatory and compliance expert.
 
-Your task is to rewrite the given business process as a compliance requirement search query.
+Your task is to rewrite the given business process as a compliance requirement search query for the sake of query expansion.
 
 Requirements:
 - Frame the process in terms of: obligations, restrictions, reporting requirements
@@ -28,16 +30,8 @@ Provide the compliance/regulatory requirements framing:
 """
 
 
-def regulatory_compliance_agent(client, text: str) -> str:
+def regulatory_compliance_agent(text: str, provider: str = "ollama") -> str:
     """Rewrites query as compliance requirement search"""
     prompt = build_prompt(text)
-    
-    try:
-        response = client.models.generate_content(
-            model="gemini-3-flash-preview",
-            contents=prompt
-        )
-        return response.text.strip()
-    except Exception as e:
-        print(f"[ERROR] Regulatory Compliance Agent failed: {e}")
-        return ""
+    llm = get_llm_provider(provider)
+    return llm.generate(prompt)

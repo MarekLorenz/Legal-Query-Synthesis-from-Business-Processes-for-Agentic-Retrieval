@@ -3,17 +3,22 @@ Legal Terminology Rewriter Agent (Domain Translator)
 Translates business/process language → formal legal language
 """
 
+from llm_provider import get_llm_provider
+
 
 def build_prompt(process_text: str) -> str:
     return f"""
-You are a legal language expert specializing in business process documentation.
+You are a query diversification expert. Your task is to rephrase the given query from a business process into a different but related query used for BM25 retrieval.
 
-Your task is to translate the given business/process language into formal legal terminology.
+The domain is legal information retrieval and the corpus contains regulatory text passages, i.e. articles, laws etc.
+
+Re-express the input query using legal terminology and regulatory language while preserving its original intent. The rewritten query should better match how concepts appear in legal and regulatory documents.
 
 Requirements:
 - Map business terms to legal equivalents
 - Introduce legal phrasing and formal jargon
 - Maintain the core meaning while using legal vocabulary
+- Prevent topic drift
 - Return ONLY the rewritten query, nothing else
 
 Example transformations:
@@ -27,16 +32,8 @@ Provide the legal terminology rewrite:
 """
 
 
-def legal_terminology_rewriter(client, text: str) -> str:
+def legal_terminology_rewriter(text: str, provider: str = "ollama") -> str:
     """Rewrites query using legal terminology"""
     prompt = build_prompt(text)
-    
-    try:
-        response = client.models.generate_content(
-            model="gemini-3-flash-preview",
-            contents=prompt
-        )
-        return response.text.strip()
-    except Exception as e:
-        print(f"[ERROR] Legal Terminology Rewriter failed: {e}")
-        return ""
+    llm = get_llm_provider(provider)
+    return llm.generate(prompt)
