@@ -25,7 +25,7 @@ Use `--provider records` to skip variant generation and read variants from an ex
 
 To reproduce the final results from the pipeline evaluation in the presentation and the report, open the notebooks under regulatory_relevance4process/SOTA_NLP_LIR/query_diversification_evaluation in their corresponding reproducability version and re-run them, to compare them to the original results.
 
-The exact ranking results that have been used for the evaluation can be found in regulatory_relevance4process-D73C/SOTA_NLP_LIR/query_diversification_results.
+The exact ranking results that have been used for the evaluation can be found in regulatory_relevance4process/SOTA_NLP_LIR/query_diversification_results.
 
 There are more experiments, however most of them only served for improving the model.
 
@@ -120,4 +120,4 @@ Judge provider defaults to the variant `--provider` when it is not `records`; ot
 |------|---------|
 | `output_with_agents_<uc>.csv` | Original queries plus four agent variant columns |
 | `output_ranking_<uc>.xlsx` | One sheet per method (e.g. `BM25_baseline`, `BM25_RRF_weighted_CE`, …) |
-| `regulatory_relevance4process-D73C/SOTA_NLP_LIR/output_ranking_input_eval/<uc>/algo_output/` | Per-level `*_algo_output_<method>.xlsx` for evaluation notebooks |
+| `regulatory_relevance4process/SOTA_NLP_LIR/output_ranking_input_eval/<uc>/algo_output/` | Per-level `*_algo_output_<method>.xlsx` for evaluation notebooks |
