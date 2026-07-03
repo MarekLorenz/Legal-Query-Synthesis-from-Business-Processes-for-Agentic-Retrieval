@@ -1,5 +1,11 @@
 # Legal Query Synthesis from Business Processes for Agentic Retrieval
 
+Agentic query synthesis for legal information retrieval: business process descriptions are rewritten into diversified legal search queries and fused in a BM25 + cross-encoder retrieval pipeline.
+
+Read the full write-up in the [report paper (PDF)](https://github.com/MarekLorenz/Legal-Query-Synthesis-from-Business-Processes-for-Agentic-Retrieval/blob/main/report/practical_course_report_marek_lorenz.pdf).
+
+![Framework overview](assets/diagram.png)
+
 ## Setup
 
 Start a virtual environment using Python 3.12 and open it.
