@@ -21,7 +21,7 @@ from retrieval.query_merging import RankedList, ReciprocalRankFusion
 from retrieval.retrieval_bm25 import Query, RankingResult, build_bm25_index, load_corpus
 from retrieval.sota_retrieval import RetrievedPassage, SotaRetriever
 
-SOTA_BASE = Path("regulatory_relevance4process-D73C/SOTA_NLP_LIR")
+SOTA_BASE = Path("regulatory_relevance4process/SOTA_NLP_LIR")
 INPUT_RANKING = SOTA_BASE / "input_ranking"
 OUTPUT_EVAL = SOTA_BASE / "output_ranking_input_eval"
 

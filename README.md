@@ -121,3 +121,19 @@ Judge provider defaults to the variant `--provider` when it is not `records`; ot
 | `output_with_agents_<uc>.csv` | Original queries plus four agent variant columns |
 | `output_ranking_<uc>.xlsx` | One sheet per method (e.g. `BM25_baseline`, `BM25_RRF_weighted_CE`, …) |
 | `regulatory_relevance4process/SOTA_NLP_LIR/output_ranking_input_eval/<uc>/algo_output/` | Per-level `*_algo_output_<method>.xlsx` for evaluation notebooks |
+
+## Citation
+
+If you use this work, please cite the practical course report:
+
+```bibtex
+@misc{lorenz2026legalquerysynthesis,
+  author       = {Lorenz, Marek},
+  title        = {Legal Query Synthesis from Business Processes for Agentic Retrieval},
+  year         = {2026},
+  month        = {may},
+  howpublished = {Practical course report},
+  url          = {https://github.com/MarekLorenz/Legal-Query-Synthesis-from-Business-Processes-for-Agentic-Retrieval},
+  note         = {PDF: report/practical\_course\_report\_marek\_lorenz.pdf}
+}
+```
